@@ -6,6 +6,9 @@ export class Form extends Component{
         name: '',
         number: '',
     }
+    
+    idName = nanoid();
+    idNumber = nanoid();
 
     handleChange = (evt) => {
         const { name, value } = evt.currentTarget;
@@ -26,10 +29,10 @@ export class Form extends Component{
     }
 
     render() {
-      
+
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="">Name
+                <label htmlFor={this.idName}>Name
                     <input
                         type="text"
                         name="name"
@@ -37,9 +40,10 @@ export class Form extends Component{
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                         onChange={this.handleChange}
+                        id={this.idName}
                     />
                 </label>
-                <label htmlFor="">Number
+                <label htmlFor={this.idNumber}>Number
                     <input
                         type="tel"
                         name="number"
@@ -47,6 +51,7 @@ export class Form extends Component{
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         onChange={this.handleChange}
+                        id={this.idNumber}
                     />
                 </label>
                 <button type='submit'>Add contact</button>
