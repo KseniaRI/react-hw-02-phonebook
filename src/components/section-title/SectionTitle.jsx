@@ -1,0 +1,1 @@
+export const SectionTitle = ({ title }) => <h2>{title}</h2>;
